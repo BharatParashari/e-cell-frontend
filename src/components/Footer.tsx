@@ -54,6 +54,7 @@ const TwitterIcon = () => (
 
 // Contact data for better maintainability
 // Contact data grouped by role for better readability
+
 const contactInfo = [
   {
     role: "Chairperson",
@@ -71,7 +72,7 @@ const contactInfo = [
       {
         name: "Dhruv Agrawal",
         phone: "+91 77968 21777",
-        id: "contact-pro-head",
+        id: "contact-pro-head-dhruv",
       },
     ],
   },
@@ -81,11 +82,12 @@ const contactInfo = [
       {
         name: "Siddharth Pareekh",
         phone: "+91 77278 12825",
-        id: "contact-pro-head",
+        id: "contact-pro-head-siddharth",
       },
     ],
   },
 ];
+
 
 // Social media links for better maintainability
 const socialLinks = [
@@ -211,8 +213,10 @@ const Footer = memo(() => {
           <section>
             <h4 className="font-bold text-lg mb-4">Contact Us</h4>
             <ul className="space-y-6">
-              {contactInfo.map((group) => (
-                <li key={group.role} className="space-y-2">
+             
+            {contactInfo.map((group, index) => (
+                  <li key={`${group.role}-${index}`} className="space-y-2">
+ 
                   <p className="text-white/30 text-xs font-semibold tracking-[0.2em] uppercase">
                     {group.role}
                   </p>
