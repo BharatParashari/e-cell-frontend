@@ -11,6 +11,7 @@ import MESMindset from "@/components/MESMindset";
 import MESFeatureCards from "@/components/MESFeatureCards";
 import EntrepreneurshipEcosystem from "@/components/EntrepreneurshipEcosystem";
 import ScrollReveal from "@/components/ScrollReveal";
+import ParticleField from "@/components/ParticleField";
 import {
   mesEventGroups2026,
   mesReelFrames,
@@ -29,12 +30,16 @@ export default function MESPage() {
   return (
     <div className="relative min-h-screen text-white">
       <MesBackground />
+      {/* Cursor-reactive particle network over the background */}
+      <div className="pointer-events-none fixed inset-0 z-0">
+        <ParticleField />
+      </div>
       <MesEasterEgg />
       <MesSoundtrack />
       <Navbar />
 
       <main className="relative">
-        <MesHero frames={mesReelFrames} year={2026} />
+        <MesHero frames={mesReelFrames} />
         <MesNextEdition year={2027} />
 
         <div className="px-6">

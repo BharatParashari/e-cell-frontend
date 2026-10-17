@@ -8,17 +8,18 @@ import styles from "./mes.module.css";
 interface MesHeroProps {
   /** Photos shown inside the MES letters. */
   frames: string[];
+  /** Optional year shown after the summit name. */
   year?: number;
 }
 
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 /**
- * "E-Cell MIT Manipal presents MES — Manipal Entrepreneurship Summit {year}".
+ * "E-Cell MIT Manipal presents MES — Manipal Entrepreneurship Summit".
  * The MES letters are windows onto the event photos; the page background
  * shows around them. Drifts back and fades as you scroll away.
  */
-export default function MesHero({ frames, year = 2026 }: MesHeroProps) {
+export default function MesHero({ frames, year }: MesHeroProps) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -32,10 +33,11 @@ export default function MesHero({ frames, year = 2026 }: MesHeroProps) {
     <section
       ref={ref}
       className="relative flex min-h-[calc(100svh-5rem)] flex-col items-center overflow-hidden px-4 pb-20 pt-3 sm:min-h-[calc(100svh-6rem)] sm:pt-4"
-      aria-label={`MES ${year}`}
+      aria-label="MES"
     >
       <h1 className="sr-only">
-        E-Cell MIT Manipal presents MES — Manipal Entrepreneurship Summit {year}
+        E-Cell MIT Manipal presents MES — Manipal Entrepreneurship Summit
+        {year ? ` ${year}` : ""}
       </h1>
 
       <motion.div
@@ -68,9 +70,11 @@ export default function MesHero({ frames, year = 2026 }: MesHeroProps) {
           <span className="h-px w-8 bg-gradient-to-r from-transparent to-white/40 sm:w-16" />
           <span className="text-sm font-semibold tracking-wide text-white/85 sm:text-xl">
             Manipal Entrepreneurship Summit
-            <span className="ml-3 font-normal tracking-[0.3em] text-white/50">
-              {year}
-            </span>
+            {year && (
+              <span className="ml-3 font-normal tracking-[0.3em] text-white/50">
+                {year}
+              </span>
+            )}
           </span>
           <span className="h-px w-8 bg-gradient-to-l from-transparent to-white/40 sm:w-16" />
         </motion.div>
