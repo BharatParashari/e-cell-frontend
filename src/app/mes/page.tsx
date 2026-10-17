@@ -7,7 +7,6 @@ import MesNextEdition from "@/components/mes/MesNextEdition";
 import MesRecap from "@/components/mes/MesRecap";
 import MesEasterEgg from "@/components/mes/MesEasterEgg";
 import MesSoundtrack from "@/components/mes/MesSoundtrack";
-import MESMindset from "@/components/MESMindset";
 import MESFeatureCards from "@/components/MESFeatureCards";
 import EntrepreneurshipEcosystem from "@/components/EntrepreneurshipEcosystem";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -42,12 +41,15 @@ export default function MESPage() {
         <MesHero frames={mesReelFrames} />
         <MesNextEdition year={2027} />
 
-        <div className="px-6">
-          <ScrollReveal>
-            <MESMindset />
-          </ScrollReveal>
+        <MesRecap
+          year={2026}
+          stats={mesStats2026}
+          groups={mesEventGroups2026}
+          siteUrl="https://mes26.ecellmit.in/"
+        />
 
-          <ScrollReveal delay={100}>
+        <div className="px-6 pb-12">
+          <ScrollReveal>
             <MESFeatureCards />
           </ScrollReveal>
 
@@ -55,13 +57,6 @@ export default function MESPage() {
             <EntrepreneurshipEcosystem />
           </ScrollReveal>
         </div>
-
-        <MesRecap
-          year={2026}
-          stats={mesStats2026}
-          groups={mesEventGroups2026}
-          siteUrl="https://mes26.ecellmit.in/"
-        />
       </main>
 
       <div className="relative">

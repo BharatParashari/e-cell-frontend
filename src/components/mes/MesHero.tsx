@@ -3,7 +3,6 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import MesLetterReel from "./MesLetterReel";
-import styles from "./mes.module.css";
 
 interface MesHeroProps {
   /** Photos shown inside the MES letters. */
@@ -15,24 +14,24 @@ interface MesHeroProps {
 const EASE = [0.16, 1, 0.3, 1] as const;
 
 /**
- * "E-Cell MIT Manipal presents MES — Manipal Entrepreneurship Summit".
- * The MES letters are windows onto the event photos; the page background
- * shows around them. Drifts back and fades as you scroll away.
+ * "E-Cell MIT Manipal presents MES — Manipal Entrepreneurship Summit",
+ * followed by the MES mindset statement. The MES letters are windows onto
+ * the event photos; the page background shows around them. The title drifts
+ * back and fades as you scroll past it.
  */
 export default function MesHero({ frames, year }: MesHeroProps) {
-  const ref = useRef<HTMLElement>(null);
+  const titleRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
-    target: ref,
+    target: titleRef,
     offset: ["start start", "end start"],
   });
-  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.82]);
-  const opacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
-  const y = useTransform(scrollYProgress, [0, 1], [0, 140]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.85]);
+  const opacity = useTransform(scrollYProgress, [0, 0.9], [1, 0]);
+  const y = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
   return (
     <section
-      ref={ref}
-      className="relative flex min-h-[calc(100svh-5rem)] flex-col items-center overflow-hidden px-4 pb-20 pt-3 sm:min-h-[calc(100svh-6rem)] sm:pt-4"
+      className="relative flex flex-col items-center px-4 pb-24 pt-1 sm:pb-32 sm:pt-2"
       aria-label="MES"
     >
       <h1 className="sr-only">
@@ -41,11 +40,12 @@ export default function MesHero({ frames, year }: MesHeroProps) {
       </h1>
 
       <motion.div
+        ref={titleRef}
         className="flex flex-col items-center text-center"
         style={{ scale, opacity, y }}
       >
         <motion.p
-          className="mb-3 text-[10px] font-medium uppercase tracking-[0.4em] text-white/55 sm:mb-4 sm:text-xs"
+          className="mb-2 text-[10px] font-medium uppercase tracking-[0.4em] text-white/55 sm:mb-3 sm:text-xs"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.3, ease: EASE }}
@@ -62,7 +62,7 @@ export default function MesHero({ frames, year }: MesHeroProps) {
         </motion.div>
 
         <motion.div
-          className="mt-6 flex items-center gap-3 sm:mt-8 sm:gap-4"
+          className="mt-5 flex items-center gap-3 sm:mt-6 sm:gap-4"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, delay: 0.6, ease: EASE }}
@@ -80,11 +80,27 @@ export default function MesHero({ frames, year }: MesHeroProps) {
         </motion.div>
       </motion.div>
 
-      <div className="absolute bottom-8 left-1/2 h-10 w-px -translate-x-1/2 overflow-hidden bg-white/10">
-        <span
-          className={`${styles.scrollCue} absolute inset-x-0 top-0 h-1/2 bg-white/70`}
-        />
-      </div>
+      {/* The MES mindset */}
+      <motion.div
+        className="mt-14 max-w-3xl text-center sm:mt-20"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, margin: "-60px" }}
+        transition={{ duration: 0.9, delay: 0.2, ease: EASE }}
+      >
+        <h2 className="text-3xl font-black uppercase leading-[1.05] tracking-tight text-white sm:text-5xl">
+          Don&apos;t just imagine the future.{" "}
+          <span className="text-white/45">Build it.</span>
+        </h2>
+        <p className="mx-auto mt-6 max-w-2xl text-base leading-7 text-white/60 sm:text-lg">
+          Entrepreneurship is more than starting a business. It&apos;s about
+          spotting opportunities, challenging the status quo, and transforming
+          ideas into solutions that matter.
+        </p>
+        <p className="mt-8 text-xs font-medium uppercase tracking-[0.25em] text-white/80 sm:text-sm">
+          Think boldly. Question everything. Build what matters.
+        </p>
+      </motion.div>
     </section>
   );
 }
