@@ -85,7 +85,7 @@ export default function MesHero({ frames, year }: MesHeroProps) {
         className="mt-14 max-w-3xl text-center sm:mt-20"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-60px" }}
+        viewport={{ once: false, margin: "-60px" }}
         transition={{ duration: 0.9, delay: 0.2, ease: EASE }}
       >
         <h2 className="text-3xl font-black uppercase leading-[1.05] tracking-tight text-white sm:text-5xl">

@@ -39,7 +39,7 @@ export default function MesEventCard({
       className={`[perspective:1200px] ${className}`}
       initial={{ opacity: 0, y: 40, rotateX: -12 }}
       whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: false, margin: "-40px" }}
       transition={{
         duration: 0.8,
         delay: index * 0.08,

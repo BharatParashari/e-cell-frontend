@@ -3,6 +3,7 @@
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { MES_EGG_EVENT } from "./mesSignals";
+import MesCountUp from "./MesCountUp";
 import styles from "./mes.module.css";
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -30,7 +31,7 @@ export default function MesNextEdition({ year = 2027 }: MesNextEditionProps) {
         className="mx-auto flex max-w-5xl flex-col items-center text-center"
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        viewport={{ once: false, margin: "-100px" }}
         transition={{ duration: 0.9, ease: EASE }}
       >
         <p className="mb-6 text-[11px] font-medium uppercase tracking-[0.4em] text-white/45 sm:text-xs">
@@ -44,7 +45,12 @@ export default function MesNextEdition({ year = 2027 }: MesNextEditionProps) {
             onClick={onYearTap}
             className={`${styles.shimmerText} cursor-default outline-none`}
           >
-            {year}
+            <MesCountUp
+              to={year}
+              from={year - 7}
+              duration={1.4}
+              grouped={false}
+            />
           </button>
         </h2>
 

@@ -63,7 +63,7 @@ export default function MesEventGroup({
         className="mb-5 flex flex-col gap-1 border-t border-white/15 pt-5 sm:mb-6 md:flex-row md:items-baseline md:justify-between"
         initial={{ opacity: 0, y: 16 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-40px" }}
+        viewport={{ once: false, margin: "-40px" }}
         transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="flex items-baseline gap-3">

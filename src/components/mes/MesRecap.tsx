@@ -57,7 +57,7 @@ export default function MesRecap({
           className="mb-12 sm:mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
+          viewport={{ once: false, margin: "-80px" }}
           transition={{ duration: 0.8, ease: EASE }}
         >
           <p className="mb-4 text-[11px] font-medium uppercase tracking-[0.35em] text-white/40 sm:text-xs">
@@ -76,7 +76,7 @@ export default function MesRecap({
           className="mb-12 mt-20 max-w-md text-sm leading-relaxed text-white/50 sm:mt-28 sm:text-base"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
+          viewport={{ once: false, margin: "-60px" }}
           transition={{ duration: 0.7, ease: EASE }}
         >
           The events behind those numbers. Tap a card to see what each one was

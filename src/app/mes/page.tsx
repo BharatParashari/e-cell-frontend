@@ -49,16 +49,16 @@ export default function MESPage() {
         />
 
         <div className="px-6 pb-12">
-          <ScrollReveal>
+          <ScrollReveal once={false}>
             <MESFeatureCards />
           </ScrollReveal>
 
-          <ScrollReveal delay={100}>
+          <ScrollReveal once={false} delay={100}>
             <EntrepreneurshipEcosystem />
           </ScrollReveal>
 
           {/* Call to action */}
-          <ScrollReveal delay={150} className="pb-16 text-center">
+          <ScrollReveal once={false} delay={150} className="pb-16 text-center">
             <Link
               href="https://mes26.ecellmit.in/"
               className="group inline-flex items-center gap-2 rounded-full border border-white/40 bg-transparent px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:border-white hover:bg-white/10"
