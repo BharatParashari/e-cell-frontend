@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MesBackground from "@/components/mes/MesBackground";
@@ -45,7 +46,6 @@ export default function MESPage() {
           year={2026}
           stats={mesStats2026}
           groups={mesEventGroups2026}
-          siteUrl="https://mes26.ecellmit.in/"
         />
 
         <div className="px-6 pb-12">
@@ -55,6 +55,19 @@ export default function MESPage() {
 
           <ScrollReveal delay={100}>
             <EntrepreneurshipEcosystem />
+          </ScrollReveal>
+
+          {/* Call to action */}
+          <ScrollReveal delay={150} className="pb-16 text-center">
+            <Link
+              href="https://mes26.ecellmit.in/"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/40 bg-transparent px-6 py-3 text-sm font-medium text-white transition-all duration-300 hover:border-white hover:bg-white/10"
+            >
+              Visit MES Website
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1.5">
+                →
+              </span>
+            </Link>
           </ScrollReveal>
         </div>
       </main>
