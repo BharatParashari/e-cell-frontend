@@ -6,11 +6,11 @@ import InitiativesClientView from "@/components/initiatives/InitiativesClientVie
 export const metadata: Metadata = {
   title: "Our Initiatives | E-Cell MIT Manipal - Empowering Ventures & Innovation",
   description:
-    "Explore E-Cell MIT Manipal's signature initiatives: E-10 Summit, Startup Scoop newsletter, Business Clinic, Innovation Policy Consortium, and Conceptio.",
+    "Explore E-Cell MIT Manipal's initiatives: Startup Scoop, Business Clinic, E-10 Summit, IPC, Conceptio, the Alumni Post Series, and MES programs including Pitch Tank, Money Quest, and Case Maze.",
   openGraph: {
     title: "Our Initiatives | E-Cell MIT Manipal",
     description:
-      "Explore E-Cell MIT Manipal's signature initiatives: E-10 Summit, Startup Scoop newsletter, Business Clinic, Innovation Policy Consortium, and Conceptio.",
+      "Explore E-Cell MIT Manipal's initiatives: Startup Scoop, Business Clinic, E-10 Summit, IPC, Conceptio, the Alumni Post Series, and MES programs including Pitch Tank, Money Quest, and Case Maze.",
     url: "https://ecellmit.com/initiatives",
     siteName: "E-Cell MIT Manipal",
     images: [
@@ -68,6 +68,46 @@ export default function InitiativesPage() {
         description:
           "Flagship business plan competition providing cash grants and incubation.",
         url: "https://ecellmit.com/conceptio-form",
+      },
+      {
+        "@type": "ListItem",
+        position: 6,
+        name: "Alumni Post Series",
+        description:
+          "Editorial profiles spotlighting E-Cell and MAHE alumni career paths and founder journeys.",
+        url: "https://ecellmit.com/blog",
+      },
+      {
+        "@type": "ListItem",
+        position: 7,
+        name: "Postmortem",
+        description:
+          "A reflective session format for learning from venture, product, and event outcomes.",
+        url: "https://ecellmit.com/mes",
+      },
+      {
+        "@type": "ListItem",
+        position: 8,
+        name: "Money Quest",
+        description:
+          "A finance-themed competition combining a treasure hunt, bidding, and strategy gameplay.",
+        url: "https://ecellmit.com/mes",
+      },
+      {
+        "@type": "ListItem",
+        position: 9,
+        name: "Pitch Tank",
+        description:
+          "A live startup pitching competition featured at Manipal Entrepreneurship Summit 2026.",
+        url: "https://ecellmit.com/mes",
+      },
+      {
+        "@type": "ListItem",
+        position: 10,
+        name: "Case Maze",
+        description:
+          "A two-round business case competition built around real startup crises.",
+        url: "https://ecellmit.com/mes",
       },
     ],
   };

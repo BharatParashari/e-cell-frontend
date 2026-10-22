@@ -2,7 +2,12 @@ export interface InitiativeItem {
   id: string;
   num: string;
   heading: string;
-  category: "Mentorship" | "Summits" | "Publications" | "Policy & Incubation";
+  category:
+    | "Mentorship"
+    | "Summits"
+    | "Publications"
+    | "Policy & Incubation"
+    | "Alumni & Community";
   tag: string;
   status: string;
   image: string;
@@ -21,6 +26,7 @@ export const INITIATIVE_CATEGORIES = [
   "Summits",
   "Publications",
   "Policy & Incubation",
+  "Alumni & Community",
 ] as const;
 
 export type InitiativeCategory = (typeof INITIATIVE_CATEGORIES)[number];
@@ -77,7 +83,7 @@ export const initiativesData: InitiativeItem[] = [
     category: "Summits",
     tag: "MAHE Leadership",
     status: "Annual Summit",
-    image: "/picture_e10_summit.webp",
+    image: "/initiatives/e10-summit.webp",
     description:
       "The premier inter-collegiate entrepreneurship summit uniting entrepreneurship bodies across all MAHE institutions to build institutional synergy, share best practices, and sign collaborative charters.",
     fullDescription:
@@ -99,7 +105,7 @@ export const initiativesData: InitiativeItem[] = [
     category: "Policy & Incubation",
     tag: "Policy & Governance",
     status: "Flagship Forum",
-    image: "/MES_Creative_Handout_Banner.webp",
+    image: "/initiatives/ipc.webp",
     description:
       "A national student-driven policy initiative challenging university teams to research real ecosystem bottlenecks and submit actionable white papers to state government leadership at MES.",
     fullDescription:
@@ -121,7 +127,7 @@ export const initiativesData: InitiativeItem[] = [
     category: "Policy & Incubation",
     tag: "B-Plan & Incubation",
     status: "Annual Challenge",
-    image: "/conceptio-globe.png",
+    image: "/initiatives/conceptio.webp",
     description:
       "The flagship business plan and pitching competition of E-Cell MIT Manipal, translating nascent technology concepts into viable, fundable enterprise ventures with cash prizes and incubation backing.",
     fullDescription:
@@ -136,11 +142,114 @@ export const initiativesData: InitiativeItem[] = [
       "Fast-track incubation through the MAHE Innovation Centre",
     ],
   },
+  {
+    id: "alumni-post-series",
+    num: "06",
+    heading: "Alumni Post Series",
+    category: "Alumni & Community",
+    tag: "Founder Stories",
+    status: "Alumni Spotlight",
+    image: "/people.jpg",
+    description:
+      "A story series spotlighting E-Cell and MAHE alumni—their career paths, founder journeys, lessons learned, and the people and ideas that helped shape their work.",
+    fullDescription:
+      "Alumni Post Series brings the experiences of E-Cell and MAHE alumni back to campus. Through editorial profiles and conversations, the series aims to share practical lessons from building careers and ventures with the next generation of student entrepreneurs.",
+    link: "/blog",
+    actionLabel: "Explore Stories",
+    isExternalLink: false,
+    highlights: [
+      "Profiles of alumni and their professional journeys",
+      "Lessons and perspectives for aspiring founders",
+    ],
+  },
+  {
+    id: "postmortem",
+    num: "07",
+    heading: "Postmortem",
+    category: "Alumni & Community",
+    tag: "Founder Learnings",
+    status: "Event Series",
+    image: "/initiatives/postmortem.webp",
+    description:
+      "A reflective session format for unpacking what happened after a venture, product, or event—surfacing decisions, setbacks, and lessons that others can learn from.",
+    fullDescription:
+      "Postmortem creates space for honest, structured reflection on projects and entrepreneurial efforts: what the team set out to do, what actually happened, and what they would change next time. The emphasis is on learning rather than assigning blame.",
+    link: "/mes",
+    actionLabel: "Explore MES",
+    isExternalLink: false,
+    highlights: [
+      "A candid look at decisions, challenges, and outcomes",
+      "Practical takeaways for future student teams",
+    ],
+  },
+  {
+    id: "money-quest",
+    num: "08",
+    heading: "Money Quest",
+    category: "Summits",
+    tag: "MES Competition",
+    status: "MES 2026",
+    image: "/initiatives/money-quest.webp",
+    description:
+      "A finance-themed competition blending a treasure hunt, bidding, and Monopoly-style strategy.",
+    fullDescription:
+      "Money Quest combines a treasure hunt with bidding rounds and Monopoly-inspired gameplay. It was featured among the competitions at Manipal Entrepreneurship Summit 2026.",
+    link: "/mes",
+    actionLabel: "Explore MES",
+    isExternalLink: false,
+    statBadge: "MES Competition",
+    highlights: [
+      "Treasure-hunt and bidding challenges",
+      "Strategy-focused, Monopoly-inspired gameplay",
+    ],
+  },
+  {
+    id: "pitch-tank",
+    num: "09",
+    heading: "Pitch Tank",
+    category: "Summits",
+    tag: "Founder Pitching",
+    status: "MES 2026",
+    image: "/initiatives/pitch-tank.webp",
+    description:
+      "A live pitching competition where founders presented to venture capitalists, angel investors, and alumni.",
+    fullDescription:
+      "Pitch Tank was featured at Manipal Entrepreneurship Summit 2026, giving founders the opportunity to pitch live to VCs, angels, and alumni. The MES event listing describes a prize pool, but current availability and application details should be confirmed with event organizers.",
+    link: "/mes",
+    actionLabel: "Explore MES",
+    isExternalLink: false,
+    statBadge: "MES Competition",
+    highlights: [
+      "Live startup pitches to investors and alumni",
+      "Prize and application details depend on the current edition",
+    ],
+  },
+  {
+    id: "case-maze",
+    num: "10",
+    heading: "Case Maze",
+    category: "Summits",
+    tag: "Case Competition",
+    status: "MES 2026",
+    image: "/initiatives/case-maze.webp",
+    description:
+      "A case competition built around real startup crises, challenging participants to work through difficult business decisions across two rounds.",
+    fullDescription:
+      "Case Maze was listed among the Manipal Entrepreneurship Summit 2026 competitions. Its format centers on real startup crises and a two-round challenge. Confirm the current edition's registration and event details with the organizers.",
+    link: "/mes",
+    actionLabel: "Explore MES",
+    isExternalLink: false,
+    statBadge: "MES Competition",
+    highlights: [
+      "Two rounds based on startup crisis cases",
+      "Business decision-making under constraints",
+    ],
+  },
 ];
 
 export const INITIATIVE_METRICS = [
-  { value: "5+", label: "Ecosystem Initiatives" },
-  { value: "16+", label: "Startup Scoop Editions" },
-  { value: "40+", label: "Startups Mentored" },
-  { value: "10+", label: "Colleges In E-10 Network" },
+  { value: "10", label: "Initiatives Featured" },
+  { value: "5", label: "Initiative Categories" },
+  { value: "4", label: "MES Programs Featured" },
+  { value: "2", label: "Alumni & Community Formats" },
 ] as const;

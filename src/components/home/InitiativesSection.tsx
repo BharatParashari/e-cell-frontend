@@ -184,7 +184,7 @@ export default function InitiativesSection() {
 
         {/* Initiative list */}
         <div className="border-t border-white/10">
-          {initiativesData.map((initiative, i) => (
+          {initiativesData.slice(0, 3).map((initiative, i) => (
             <InitiativeBlock
               key={initiative.id}
               initiative={initiative}
